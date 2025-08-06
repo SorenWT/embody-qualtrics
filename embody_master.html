@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Emotional bodily sensations</title>
+        <script src="jspsych-6.1.0/jspsych.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-embody.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-survey-likert.js"></script>
+        <script src="jatos.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+		<script type="text/javascript" src="v1/js/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript" src="v1/js/common.js"></script> 
+		<script type="text/javascript" src="v1/js/99.js"></script> 
+        <script type="text/javascript" src="v1/js/pain.js"></script> 
+        <script type="text/javascript" src="pointer_events_polyfill-master/pointer_events_polyfill.js"></script>
+		<script type="text/javascript" src="v1/js/touch_handler.js"></script>
+        <script type='application/javascript' src='v1/js/fastclick.js'></script> 
+        <script type='text/javascript' src='embody_vars.js'></script>
+        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body>
+
+    </body>
+
+    <script>
+        var winsize;
+  
+        var xp; var yp;
+        var arrX = new Array(0);
+        var arrY = new Array(0);
+        var arrTime = new Array(0);
+
+        var arrXD = new Array(0);
+        var arrYD = new Array(0);
+        var arrTimeD = new Array(0);
+
+        var arrMD = new Array(0);
+        var arrMU = new Array(0);
+
+        //emos = ['HAPPINESS','SADNESS','ANGER','FEAR','DISGUST','SURPRISE'];
+        emos = ['','','','','',''];
+
+        count = 0; 
+
+        var seq = [1,2,3,4,5,6]; // replace this later depending on how/if we want to do balancing, shuffling
+        seq = jsPsych.randomization.repeat(seq,1);
+
+        var embodytrl = {
+            type:'embody',
+            preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate what you felt in your body during the previous week.</p></div>',
+            stimulus:function(){
+                count +=1;
+                return emos[seq[count-1]-1]
+            },
+            on_finish: function(data){
+                data.test_part = 'embody_main';
+                return data
+            }
+        }
+
+        var surveytrl = {
+            type:'survey-likert',
+            preamble:function(){
+                return '<p style="font-size:150%"> Please answer a few questions about how you experience the previous emotion (' +emos[seq[count-1]-1] +')'; 
+            },
+            questions: function(){
+                return [
+                    {prompt:'How much do you feel '+emos[seq[count-1]-1] +' in your body?',name:'body_salience',labels:['Not at all','A little','Somewhat','Quite a bit','Very much'],required:true},
+                    {prompt:'How much do you feel '+emos[seq[count-1]-1] +' in your mind?',name:'mental_salience',labels:['Not at all','A little','Somewhat','Quite a bit','Very much'],required:true},
+                    {prompt:'How pleasant or unpleasant does '+emos[seq[count-1]-1] +' feel to you?',name:'valence',labels:['Very unpleasant','Somewhat unpleasant','Neither pleasant nor unpleasant','Somewhat pleasant','Very pleasant'],required:true},
+                    {prompt:'How much do you feel that you can control your experience of '+emos[seq[count-1]-1] +'?',name:'controllability',labels:['Not at all','A little','Somewhat','Quite a bit','Completely'],required:true},
+                    {prompt:'When was the last time you felt ' +emos[seq[count-1]-1] +'?',name:'lapse',labels:['Less than an hour ago','A few days ago','A few weeks ago','A few months ago','Over a year ago or never'],required:true},
+                ]
+            }
+        }
+
+        main_proc = {
+            timeline:[embodytrl,surveytrl],
+            repetitions:6,
+        };
+
+        /*
+        function getPos(el) {
+            // yay readability
+            for (var lx=0, ly=0;
+                el != null;
+                lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+            return {x: lx,y: ly};
+        }*/
+
+
+            timeline = [];
+            timeline.push(proc_intro);
+            timeline.push(main_proc);
+
+            jsPsych.init({
+                timeline: timeline,
+                display_element:'display_stage',
+                on_finish: function() {
+                    //jsPsych.data.displayData();
+                    var resJson = jsPsych.data.get().json();
+                    jatos.submitResultData(resJson)
+                    jsPsych.data.displayData()
+                    //setTimeout(function () { location.href = "https://brams.org" }, 500)
+                }
+            })
+
+
+    </script>
+</html>
