@@ -115,7 +115,7 @@ var instructions = {
 }
 
 var proc_intro = {
-    timeline:[welcome_fullscreen, instructions],
+    timeline:[instructions],
 }
 
 var endscreen_feedback = {
