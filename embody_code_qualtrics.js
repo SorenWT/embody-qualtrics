@@ -15,11 +15,12 @@ var arrMU = new Array(0);
 var repo_site = "https://sorenwt.github.io/embody-qualtrics/";
 
 //emos = ['HAPPINESS','SADNESS','ANGER','FEAR','DISGUST','SURPRISE'];
-emos = ['','','','','',''];
+emos = [''];
 
 count = 0; 
 
-var seq = [1,2,3,4,5,6]; // replace this later depending on how/if we want to do balancing, shuffling
+var seq = [1];
+//var seq = [1,2,3,4,5,6]; // replace this later depending on how/if we want to do balancing, shuffling
 seq = jsPsych.randomization.repeat(seq,1);
 
 var embodytrl = {
@@ -53,7 +54,7 @@ var surveytrl = {
 
 main_proc = {
     timeline:[embodytrl,surveytrl],
-    repetitions:6,
+    repetitions:1,
 };
 
 /*
