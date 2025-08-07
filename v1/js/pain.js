@@ -218,13 +218,13 @@ function spraycan(display_element) {
 		arrMU.push(e.timeStamp);
 	});
 	var pbox = jQuery("#pbox");
-	pbox.addEventListener('touchstart', function(e){
+	pbox.on('touchstart', function(e){
 	    e.preventDefault();
 	    strokelength.push(0);
 	    if (!ac.stopped) { draw(e); jQuery("#pbox").bind('touchmove', draw); }
 	        arrMD.push(e.timeStamp);
     });
-    pbox.addEventListener('touchend', function(e){
+    pbox.on('touchend', function(e){
 	    e.preventDefault();
 	    if (!ac.stopped) jQuery("#pbox").bind('touchmove', draw); jQuery("#pbox").unbind('touchmove', draw);
 	        arrMU.push(e.timeStamp);
@@ -277,7 +277,7 @@ function rgbToHex(hex) {
 function draw(e){
 	e.preventDefault();
 	if (spraycan.movingCP) return;
-	var groupHolder = document.createElement('div');
+	var groupHolder = jQuery('div');
 	var divIdName = 'brushstroke'+currentstroke+'Div';
 	currentstroke = currentstroke + 1;
 	strokelength[strokelength.length - 1] = strokelength[strokelength.length - 1] + 1;
@@ -295,7 +295,7 @@ function draw(e){
     arrYD.push(yd);
     arrTimeD.push(e.timeStamp);
 	for(var j=0; j<1; j++) {
-		var div = document.createElement('div');
+		var div = jQuery('div');
 		//var brushDiam = Math.round((parseInt(spraycan.bar.css('left')) / spraycan.bar.parent().width()) * 100);
 		var brushDiam=10;
 		
@@ -321,7 +321,7 @@ function draw(e){
 			addClass('spraycan');
 			
 		}
-		div.setAttribute('id', divIdName);
+		jQuery(div).attr('id', divIdName);
 		jQuery(div).css('pointer-events','none');
 		jQuery(groupHolder).append(div);
 	}
