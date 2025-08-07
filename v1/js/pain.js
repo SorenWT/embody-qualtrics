@@ -151,7 +151,7 @@ function spraycan(display_element) {
 	/* ------------------
 	| CLOSE/CLEAN BUTTONS
 	------------------ */
-	/*
+	
 	var buts = [];
 	//var buts = ['Reset'];
 	for(var g in buts) {
@@ -174,7 +174,7 @@ function spraycan(display_element) {
 			addClass('jspsych-btn');
 			//mouseover(function() { $(this).css('textDecoration', 'underline'); });
 			//mouseout(function() { $(this).css('textDecoration', 'none'); });
-			text(buts[g]);
+			//text(buts[g]);
 			click(buts[g] == 'close' ? function() { ac.stop(); } : function() { jQuery('.spraycan').remove(); 
 				arrX = new Array(0); arrY = new Array(0); arrTime = new Array(0);
 				arrXD = new Array(0); arrYD = new Array(0); arrTimeD = new Array(0);
@@ -187,7 +187,7 @@ function spraycan(display_element) {
 		//$(but).fadeIn('fast');
 		jQuery(but).attr('id','spraycanBut');
 		jQuery(but).attr('style','display:inline-block;');
-	}*/
+	}
 	
 	
 	/* ------------------  
