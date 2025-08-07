@@ -152,7 +152,8 @@ function spraycan(display_element) {
 	| CLOSE/CLEAN BUTTONS
 	------------------ */
 	
-	var buts = ['Reset'];
+	var buts = [];
+	//var buts = ['Reset'];
 	for(var g in buts) {
 		var but = document.createElement('button');
 		with(jQuery(but)) {
