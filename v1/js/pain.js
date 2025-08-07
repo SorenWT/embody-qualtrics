@@ -173,7 +173,7 @@ function spraycan(display_element) {
 			addClass('jspsych-btn');
 			//mouseover(function() { $(this).css('textDecoration', 'underline'); });
 			//mouseout(function() { $(this).css('textDecoration', 'none'); });
-			text(g);
+			text(buts[g]);
 			click(buts[g] == 'close' ? function() { ac.stop(); } : function() { jQuery('.spraycan').remove(); 
 				arrX = new Array(0); arrY = new Array(0); arrTime = new Array(0);
 				arrXD = new Array(0); arrYD = new Array(0); arrTimeD = new Array(0);

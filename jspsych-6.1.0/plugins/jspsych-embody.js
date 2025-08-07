@@ -107,7 +107,7 @@ jsPsych.plugins["embody"] = (function(){
             //if((window.outerWidth!=screen.width || window.outerHeight!=screen.height) && (window.innerWidth!=screen.width || window.innerHeight!=screen.height)){
                 //console.log([window.innerWidth,window.innerHeight, window.outerWidth,window.outerHeight])
                 //alert('It looks like you may have exited full-screen mode or resized your browser. Please return to full-screen mode before continuing the experiment. If you exited while coloring the bodies, your coloring has been reset.')
-                document.getElementById('spraycanBut').click();
+                jQuery('#spraycanBut').click();
             //}
             //},500);
             //window.resizeTo(scrsize[0],scrsize[1]);
