@@ -153,7 +153,7 @@ function spraycan(display_element) {
 	------------------ */
 	
 	//var buts = [];
-
+    /*
 	var allbuts = ['Reset'];
 	//var buts = ['Reset'];
 	for(var g in allbuts) {
@@ -189,7 +189,42 @@ function spraycan(display_element) {
 		//$(but).fadeIn('fast');
 		jQuery(but).attr('id','spraycanBut');
 		jQuery(but).attr('style','display:inline-block;');
+	}*/
+
+	// version out of the for loop because we just have the one button to make
+
+	var but = document.createElement('button');
+	with(jQuery(but)) {
+		//css({
+		//	zIndex: 100000,
+		//	color: '#888',
+		//	border: 'solid 6px #bbb',
+		//	cursor: 'pointer',
+		//	borderRadius: 10,
+		//	MozBorderRadius: 10,
+		//	webkitBorderRadius: 10,
+		//	padding: 6,
+			//position: 'absolute',
+			//right: (70 * g) + 20,
+			//top: -200
+		//});
+		//addClass('spraycanBut');
+		addClass('jspsych-btn');
+		//mouseover(function() { $(this).css('textDecoration', 'underline'); });
+		//mouseout(function() { $(this).css('textDecoration', 'none'); });
+		text('Reset');
+		click('Reset' == 'close' ? function() { ac.stop(); } : function() { jQuery('.spraycan').remove(); 
+			arrX = new Array(0); arrY = new Array(0); arrTime = new Array(0);
+			arrXD = new Array(0); arrYD = new Array(0); arrTimeD = new Array(0);
+			arrMU = new Array(0); arrMD = new Array(0)});
+		hide();
 	}
+	jQuery('#jspsych-html-button-response-btngroup').append(but); // append it to the button group
+	//display_element.appendChild(but)
+	//$(document.body).append(but);
+	//$(but).fadeIn('fast');
+	jQuery(but).attr('id','spraycanBut');
+	jQuery(but).attr('style','display:inline-block;');
 	
 	
 	/* ------------------  
