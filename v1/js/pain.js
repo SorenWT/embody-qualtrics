@@ -278,7 +278,7 @@ function rgbToHex(hex) {
 function draw(e){
 	e.preventDefault();
 	if (spraycan.movingCP) return;
-	var groupHolder = jQuery('div');
+	var groupHolder = jQuery('<div>');
 	var divIdName = 'brushstroke'+currentstroke+'Div';
 	currentstroke = currentstroke + 1;
 	strokelength[strokelength.length - 1] = strokelength[strokelength.length - 1] + 1;
@@ -296,7 +296,7 @@ function draw(e){
     arrYD.push(yd);
     arrTimeD.push(e.timeStamp);
 	for(var j=0; j<1; j++) {
-		var div = jQuery('div');
+		var div = jQuery('<div>');
 		//var brushDiam = Math.round((parseInt(spraycan.bar.css('left')) / spraycan.bar.parent().width()) * 100);
 		var brushDiam=10;
 		
