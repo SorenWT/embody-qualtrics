@@ -170,17 +170,17 @@ function spraycan(display_element) {
 				//top: -200
 			});*/
 			//addClass('spraycanBut');
-			addClass('jspsych-btn')
+			addClass('jspsych-btn');
 			//mouseover(function() { $(this).css('textDecoration', 'underline'); });
 			//mouseout(function() { $(this).css('textDecoration', 'none'); });
-			text(buts[g]);
+			text(g);
 			click(buts[g] == 'close' ? function() { ac.stop(); } : function() { jQuery('.spraycan').remove(); 
 				arrX = new Array(0); arrY = new Array(0); arrTime = new Array(0);
 				arrXD = new Array(0); arrYD = new Array(0); arrTimeD = new Array(0);
 				arrMU = new Array(0); arrMD = new Array(0)});
 			hide();
 		}
-		document.getElementById('jspsych-html-button-response-btngroup').appendChild(but); // append it to the button group
+		jQuery('#jspsych-html-button-response-btngroup').append(but); // append it to the button group
 		//display_element.appendChild(but)
 		//$(document.body).append(but);
 		//$(but).fadeIn('fast');
@@ -217,7 +217,7 @@ function spraycan(display_element) {
 		if (!ac.stopped) jQuery("#pbox").bind('mousemove', draw); jQuery("#pbox").unbind('mousemove', draw); //$("#pboxpaint").bind('mousemove', draw); $("#pboxpaint").unbind('mousemove', draw);
 		arrMU.push(e.timeStamp);
 	});
-	var pbox = document.getElementById("pbox");
+	var pbox = jQuery("#pbox");
 	pbox.addEventListener('touchstart', function(e){
 	    e.preventDefault();
 	    strokelength.push(0);
