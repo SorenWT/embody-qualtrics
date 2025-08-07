@@ -151,25 +151,25 @@ function spraycan(display_element) {
 	/* ------------------
 	| CLOSE/CLEAN BUTTONS
 	------------------ */
-	
+	/*
 	var buts = [];
 	//var buts = ['Reset'];
 	for(var g in buts) {
 		var but = document.createElement('button');
 		with(jQuery(but)) {
-			/*css({
-				zIndex: 100000,
-				color: '#888',
-				border: 'solid 6px #bbb',
-				cursor: 'pointer',
-				borderRadius: 10,
-				MozBorderRadius: 10,
-				webkitBorderRadius: 10,
-				padding: 6,
+			//css({
+			//	zIndex: 100000,
+			//	color: '#888',
+			//	border: 'solid 6px #bbb',
+			//	cursor: 'pointer',
+			//	borderRadius: 10,
+			//	MozBorderRadius: 10,
+			//	webkitBorderRadius: 10,
+			//	padding: 6,
 				//position: 'absolute',
 				//right: (70 * g) + 20,
 				//top: -200
-			});*/
+			//});
 			//addClass('spraycanBut');
 			addClass('jspsych-btn');
 			//mouseover(function() { $(this).css('textDecoration', 'underline'); });
@@ -187,7 +187,7 @@ function spraycan(display_element) {
 		//$(but).fadeIn('fast');
 		jQuery(but).attr('id','spraycanBut');
 		jQuery(but).attr('style','display:inline-block;');
-	}
+	}*/
 	
 	
 	/* ------------------  
