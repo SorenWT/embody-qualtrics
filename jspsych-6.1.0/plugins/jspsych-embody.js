@@ -63,10 +63,10 @@ jsPsych.plugins["embody"] = (function(){
         display_element.innerHTML = task_html+pbox_html+spacer_html+label_html+btn_html;
 
         // make a nice border
-        $('#jspsych-content').css('border-style','solid');
-        $('#jspsych-content').css('border-width','10px');
-        $('#jspsych-content').css('border-color','#888');
-        $('#jspsych-content').css('padding','20px');
+        jQuery('#jspsych-content').css('border-style','solid');
+        jQuery('#jspsych-content').css('border-width','10px');
+        jQuery('#jspsych-content').css('border-color','#888');
+        jQuery('#jspsych-content').css('padding','20px');
 
 
         var start_time = performance.now();
@@ -85,8 +85,8 @@ jsPsych.plugins["embody"] = (function(){
         var temp=document.getElementById("pbox");
         temp.onselectstart = function() { this.style.cursor='crosshair'; return false; }
 
-        //xp=$("#pbox").offset().left;
-        //yp=$("#pbox").offset().top;
+        //xp=jQuery("#pbox").offset().left;
+        //yp=jQuery("#pbox").offset().top;
         xp = 0;
         yp = 0;
         arrX = new Array(0);
@@ -102,7 +102,7 @@ jsPsych.plugins["embody"] = (function(){
 
         spraycan(display_element);
 
-        $(window).resize(function(){
+        jQuery(window).resize(function(){
             //setTimeout(function(){
             //if((window.outerWidth!=screen.width || window.outerHeight!=screen.height) && (window.innerWidth!=screen.width || window.innerHeight!=screen.height)){
                 //console.log([window.innerWidth,window.innerHeight, window.outerWidth,window.outerHeight])
@@ -113,7 +113,7 @@ jsPsych.plugins["embody"] = (function(){
             //window.resizeTo(scrsize[0],scrsize[1]);
         });
 
-        $("#pbox1").mousemove(function(e){
+        jQuery("#pbox1").mousemove(function(e){
             var x= e.pageX - xp;
             var y = e.pageY - yp;
             var colid=Math.floor((x/10)%10);
@@ -129,8 +129,8 @@ jsPsych.plugins["embody"] = (function(){
                             // debug stuff
                             /*
                             var pageCoords = "( " + arrXD[arrXD.length-1] + ", " + x + " )";
-                            $("span:first").text("( xD, x ) - " + pageCoords);
-                            $("span:last").text("( e.timeStamp ) - " + e.timeStamp);
+                            jQuery("span:first").text("( xD, x ) - " + pageCoords);
+                            jQuery("span:last").text("( e.timeStamp ) - " + e.timeStamp);
                             */
                             //}).mousedown(function(e){
                             //  arrMD.push(e.timeStamp);
@@ -140,7 +140,7 @@ jsPsych.plugins["embody"] = (function(){
                             
         });
 
-        $("#pbox2").mousemove(function(e){
+        jQuery("#pbox2").mousemove(function(e){
             var x= e.pageX - xp;
             var y = e.pageY - yp;
             var colid=Math.floor((x/10)%10);
@@ -156,8 +156,8 @@ jsPsych.plugins["embody"] = (function(){
                             // debug stuff
                             /*
                             var pageCoords = "( " + arrXD[arrXD.length-1] + ", " + x + " )";
-                            $("span:first").text("( xD, x ) - " + pageCoords);
-                            $("span:last").text("( e.timeStamp ) - " + e.timeStamp);
+                            jQuery("span:first").text("( xD, x ) - " + pageCoords);
+                            jQuery("span:last").text("( e.timeStamp ) - " + e.timeStamp);
                             */
                             //}).mousedown(function(e){
                             //  arrMD.push(e.timeStamp);
@@ -173,8 +173,8 @@ jsPsych.plugins["embody"] = (function(){
             var end_time = performance.now();
             var rt = end_time - start_time;
 
-            off1 = $('#pbox1').offset();
-            off2 = $('#pbox2').offset();
+            off1 = jQuery('#pbox1').offset();
+            off2 = jQuery('#pbox2').offset();
 
             trldata = {'arrXD': arrXD, 'arrYD': arrYD, 'arrTimeD': arrTimeD, 'arrMU': arrMU, 'arrMD': arrMD, 'rt': rt, stimulus: trial.stimulus,
                 'pbox1l':off1.left,'pbox2l':off2.left,'pbox1t':off2.top,'pbox2t':off2.top};
@@ -200,7 +200,7 @@ jsPsych.plugins["embody"] = (function(){
             jsPsych.pluginAPI.clearAllTimeouts();
 
             // get rid of the border
-            $('#jspsych-content').css('border-style','none')
+            jQuery('#jspsych-content').css('border-style','none')
       
             // clear the display
             display_element.innerHTML = '';
