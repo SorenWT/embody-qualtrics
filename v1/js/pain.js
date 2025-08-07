@@ -155,7 +155,7 @@ function spraycan(display_element) {
 	var buts = ['Reset'];
 	for(var g in buts) {
 		var but = document.createElement('button');
-		with($(but)) {
+		with(jQuery(but)) {
 			/*css({
 				zIndex: 100000,
 				color: '#888',
@@ -174,7 +174,7 @@ function spraycan(display_element) {
 			//mouseover(function() { $(this).css('textDecoration', 'underline'); });
 			//mouseout(function() { $(this).css('textDecoration', 'none'); });
 			text(buts[g]);
-			click(buts[g] == 'close' ? function() { ac.stop(); } : function() { $('.spraycan').remove(); 
+			click(buts[g] == 'close' ? function() { ac.stop(); } : function() { jQuery('.spraycan').remove(); 
 				arrX = new Array(0); arrY = new Array(0); arrTime = new Array(0);
 				arrXD = new Array(0); arrYD = new Array(0); arrTimeD = new Array(0);
 				arrMU = new Array(0); arrMD = new Array(0)});
@@ -184,8 +184,8 @@ function spraycan(display_element) {
 		//display_element.appendChild(but)
 		//$(document.body).append(but);
 		//$(but).fadeIn('fast');
-		$(but).attr('id','spraycanBut');
-		$(but).attr('style','display:inline-block;');
+		jQuery(but).attr('id','spraycanBut');
+		jQuery(but).attr('style','display:inline-block;');
 	}
 	
 	
@@ -193,16 +193,16 @@ function spraycan(display_element) {
 	| START EVENTS
 	------------------ */
 	
-	$("#pbox").mousedown(function(e) {
+	jQuery("#pbox").mousedown(function(e) {
 		strokelength.push(0);
-		if (!ac.stopped) { draw(e); $("#pbox").bind('mousemove', draw); }//$("#pboxpaint").bind('mousemove',draw)}
+		if (!ac.stopped) { draw(e); jQuery("#pbox").bind('mousemove', draw); }//jQuery("#pboxpaint").bind('mousemove',draw)}
 		arrMD.push(e.timeStamp);
 	});
 
 	
-	$('#pbox').mouseleave(function(e) {
+	jQuery('#pbox').mouseleave(function(e) {
 		//alert('pboxleave!'); 
-		$("#pbox").bind('mousemove', draw); $("#pbox").unbind('mousemove', draw);
+		jQuery("#pbox").bind('mousemove', draw); jQuery("#pbox").unbind('mousemove', draw);
 		//$("#pboxpaint").bind('mousemove', draw); $("#pboxpaint").unbind('mousemove', draw);
 	});
 
@@ -212,21 +212,21 @@ function spraycan(display_element) {
 		//$("#pboxpaint").bind('mousemove', draw); $("#pboxpaint").unbind('mousemove', draw);
 	});*/
 
-	$('.jspsych-display-element').mouseup(function(e) {
+	jQuery('.jspsych-display-element').mouseup(function(e) {
 		//alert('mouseup!');
-		if (!ac.stopped) $("#pbox").bind('mousemove', draw); $("#pbox").unbind('mousemove', draw); //$("#pboxpaint").bind('mousemove', draw); $("#pboxpaint").unbind('mousemove', draw);
+		if (!ac.stopped) jQuery("#pbox").bind('mousemove', draw); jQuery("#pbox").unbind('mousemove', draw); //$("#pboxpaint").bind('mousemove', draw); $("#pboxpaint").unbind('mousemove', draw);
 		arrMU.push(e.timeStamp);
 	});
 	var pbox = document.getElementById("pbox");
 	pbox.addEventListener('touchstart', function(e){
 	    e.preventDefault();
 	    strokelength.push(0);
-	    if (!ac.stopped) { draw(e); $("#pbox").bind('touchmove', draw); }
+	    if (!ac.stopped) { draw(e); jQuery("#pbox").bind('touchmove', draw); }
 	        arrMD.push(e.timeStamp);
     });
     pbox.addEventListener('touchend', function(e){
 	    e.preventDefault();
-	    if (!ac.stopped) $("#pbox").bind('touchmove', draw); $("#pbox").unbind('touchmove', draw);
+	    if (!ac.stopped) jQuery("#pbox").bind('touchmove', draw); jQuery("#pbox").unbind('touchmove', draw);
 	        arrMU.push(e.timeStamp);
     });
 	
@@ -237,8 +237,8 @@ function spraycan(display_element) {
 	
 	ac.stop = function() {
 		ac.stopped = true;
-		$(tools).remove();
-		$('#spraycanBut, .spraycan').remove();
+		jQuery(tools).remove();
+		jQuery('#spraycanBut, .spraycan').remove();
 	};
 	
 }
@@ -250,7 +250,7 @@ function spraycan(display_element) {
 
 function moveCP(e) {
 	spraycan.movingCP = true;
-	var cp = $('#colourPicker');
+	var cp = jQuery('#colourPicker');
 	cp.css('left', e.pageX);
 	cp.css('top', e.pageY); 
 }
@@ -299,7 +299,7 @@ function draw(e){
 		//var brushDiam = Math.round((parseInt(spraycan.bar.css('left')) / spraycan.bar.parent().width()) * 100);
 		var brushDiam=10;
 		
-		with($(div)) {
+		with(jQuery(div)) {
 			css({
 				position: 'absolute',
 				zIndex: 99999,
@@ -322,10 +322,10 @@ function draw(e){
 			
 		}
 		div.setAttribute('id', divIdName);
-		$(div).css('pointer-events','none');
-		$(groupHolder).append(div);
+		jQuery(div).css('pointer-events','none');
+		jQuery(groupHolder).append(div);
 	}
-	$("#pbox").append(groupHolder);
+	jQuery("#pbox").append(groupHolder);
 	return false;
 }
 
