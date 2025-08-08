@@ -332,6 +332,7 @@ function draw(e){
 		var xd = e.pageX - xp;
 		var yd = e.pageY - yp;	
 	}
+	console.log('XD:' + xd + ' YD:' + yd + ' XP:' + xp + ' YP:' + yp)
 	arrXD.push(xd);
     arrYD.push(yd);
     arrTimeD.push(e.timeStamp);
