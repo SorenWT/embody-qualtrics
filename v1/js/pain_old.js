@@ -5,9 +5,15 @@
 | START / STOP / SETUP
 ------------------ */
 
-function spraycan() {
+function spraycan(display_element) {
 	
-	
+
+	// swt debugging edit
+	//xp = 0; yp = 0;
+	//posn = jQuery(display_element).offset();
+	//xp = posn.left; yp = posn.top;
+
+
 	/* ------------------
 	| PREP
 	------------------ */
@@ -23,7 +29,7 @@ function spraycan() {
 	/* ------------------
 	| TOOLS HOLDER
 	------------------ */
-	var tools = document.createElement('div');
+	/*var tools = document.createElement('div');
 	with($(tools)) {
 		hide();
 		css({
@@ -43,7 +49,7 @@ function spraycan() {
 			height: '0px'
 			
 		});
-		if (ie) css('width', '125px');
+		//if (ie) css('width', '125px');
 		html("<strong>Colour</strong>");
 		mousedown(function() {
 			ac.movingCP = true;
@@ -59,7 +65,7 @@ function spraycan() {
 		addEventListener('touchend', function(e){
 			ac.movingCP = true;
 		});
-	}
+	}*/
 	
 	/* ------------------
 	| COLOUR PICKER
@@ -98,7 +104,7 @@ function spraycan() {
 	| BRUSH SIZE
 	------------------ */
 
-	var br = document.createElement('br');
+	/*var br = document.createElement('br');
 	var strong = document.createElement('strong');
 	strong.appendChild(document.createTextNode('Brush size'));
 	$(tools).append(br, strong);
@@ -133,73 +139,135 @@ function spraycan() {
 			$(ac.bar).css('left', e.pageX - $(slider).offset().left);
 	}
 	$(slider).append(ac.bar);
-	$(tools).append(slider);
+	$(tools).append(slider);*/
 	
         
 	/* ------------------
 	| APPEND TOOLS
 	------------------ */
-	
+	/*
+	display_element.appendChild(tools)
 	$(document.body).append(tools);
 	$(tools).fadeIn('slow');
-	
+	*/
 	
 	/* ------------------
 	| CLOSE/CLEAN BUTTONS
 	------------------ */
 	
-	var buts = ['close', 'clean'];
-	for(var g in buts) {
+	//var buts = [];
+    /*
+	var allbuts = ['Reset'];
+	//var buts = ['Reset'];
+	for(var g in allbuts) {
 		var but = document.createElement('button');
-		with($(but)) {
-			css({
-				zIndex: 100000,
-				color: '#888',
-				border: 'solid 6px #bbb',
-				cursor: 'pointer',
-				borderRadius: 10,
-				MozBorderRadius: 10,
-				webkitBorderRadius: 10,
-				padding: 6,
-				position: 'absolute',
-				right: (70 * g) + 20,
-				top: -200
-			});
-			addClass('spraycanBut');
-			mouseover(function() { $(this).css('textDecoration', 'underline'); });
-			mouseout(function() { $(this).css('textDecoration', 'none'); });
-			text(buts[g]);
-			click(buts[g] == 'close' ? function() { ac.stop(); } : function() { $('.spraycan').remove(); });
+		with(jQuery(but)) {
+			//css({
+			//	zIndex: 100000,
+			//	color: '#888',
+			//	border: 'solid 6px #bbb',
+			//	cursor: 'pointer',
+			//	borderRadius: 10,
+			//	MozBorderRadius: 10,
+			//	webkitBorderRadius: 10,
+			//	padding: 6,
+				//position: 'absolute',
+				//right: (70 * g) + 20,
+				//top: -200
+			//});
+			//addClass('spraycanBut');
+			addClass('jspsych-btn');
+			//mouseover(function() { $(this).css('textDecoration', 'underline'); });
+			//mouseout(function() { $(this).css('textDecoration', 'none'); });
+			text(allbuts[g]);
+			click(allbuts[g] == 'close' ? function() { ac.stop(); } : function() { jQuery('.spraycan').remove(); 
+				arrX = new Array(0); arrY = new Array(0); arrTime = new Array(0);
+				arrXD = new Array(0); arrYD = new Array(0); arrTimeD = new Array(0);
+				arrMU = new Array(0); arrMD = new Array(0)});
 			hide();
 		}
-		$(document.body).append(but);
-		$(but).fadeIn('slow');
+		jQuery('#jspsych-html-button-response-btngroup').append(but); // append it to the button group
+		//display_element.appendChild(but)
+		//$(document.body).append(but);
+		//$(but).fadeIn('fast');
+		jQuery(but).attr('id','spraycanBut');
+		jQuery(but).attr('style','display:inline-block;');
+	}*/
+
+	// version out of the for loop because we just have the one button to make
+
+	var but = document.createElement('button');
+	with(jQuery(but)) {
+		//css({
+		//	zIndex: 100000,
+		//	color: '#888',
+		//	border: 'solid 6px #bbb',
+		//	cursor: 'pointer',
+		//	borderRadius: 10,
+		//	MozBorderRadius: 10,
+		//	webkitBorderRadius: 10,
+		//	padding: 6,
+			//position: 'absolute',
+			//right: (70 * g) + 20,
+			//top: -200
+		//});
+		//addClass('spraycanBut');
+		addClass('jspsych-btn');
+		//mouseover(function() { $(this).css('textDecoration', 'underline'); });
+		//mouseout(function() { $(this).css('textDecoration', 'none'); });
+		text('Reset');
+		click('Reset' == 'close' ? function() { ac.stop(); } : function() { jQuery('.spraycan').remove(); 
+			arrX = new Array(0); arrY = new Array(0); arrTime = new Array(0);
+			arrXD = new Array(0); arrYD = new Array(0); arrTimeD = new Array(0);
+			arrMU = new Array(0); arrMD = new Array(0)});
+		hide();
 	}
+	jQuery('#jspsych-html-button-response-btngroup').append(but); // append it to the button group
+	//display_element.appendChild(but)
+	//$(document.body).append(but);
+	//$(but).fadeIn('fast');
+	jQuery(but).attr('id','spraycanBut');
+	jQuery(but).attr('style','display:inline-block;');
 	
 	
-	/* ------------------
+	/* ------------------  
 	| START EVENTS
 	------------------ */
 	
-	$("#pbox").mousedown(function(e) {
+	jQuery("#pbox").mousedown(function(e) {
 		strokelength.push(0);
-		if (!ac.stopped) { draw(e); $("#pbox").bind('mousemove', draw); }
+		if (!ac.stopped) { draw(e); jQuery("#pbox").bind('mousemove', draw); }//jQuery("#pboxpaint").bind('mousemove',draw)}
 		arrMD.push(e.timeStamp);
 	});
-	$("#pbox").mouseup(function(e) {
-		if (!ac.stopped) $("#pbox").bind('mousemove', draw); $("#pbox").unbind('mousemove', draw);
+
+	
+	jQuery('#pbox').mouseleave(function(e) {
+		//alert('pboxleave!'); 
+		jQuery("#pbox").bind('mousemove', draw); jQuery("#pbox").unbind('mousemove', draw);
+		//$("#pboxpaint").bind('mousemove', draw); $("#pboxpaint").unbind('mousemove', draw);
+	});
+
+	/*$('#pbox2').mouseleave(function(e) {
+		alert('pbox2leave!'); 
+		$("#pbox").bind('mousemove', draw); $("#pbox").unbind('mousemove', draw);
+		//$("#pboxpaint").bind('mousemove', draw); $("#pboxpaint").unbind('mousemove', draw);
+	});*/
+
+	jQuery('.jspsych-display-element').mouseup(function(e) {
+		//alert('mouseup!');
+		if (!ac.stopped) jQuery("#pbox").bind('mousemove', draw); jQuery("#pbox").unbind('mousemove', draw); //$("#pboxpaint").bind('mousemove', draw); $("#pboxpaint").unbind('mousemove', draw);
 		arrMU.push(e.timeStamp);
 	});
-	var pbox = document.getElementById("pbox");
-	pbox.addEventListener('touchstart', function(e){
+	var pbox = jQuery("#pbox");
+	pbox.on('touchstart', function(e){
 	    e.preventDefault();
 	    strokelength.push(0);
-	    if (!ac.stopped) { draw(e); $("#pbox").bind('touchmove', draw); }
+	    if (!ac.stopped) { draw(e); jQuery("#pbox").bind('touchmove', draw); }
 	        arrMD.push(e.timeStamp);
     });
-    pbox.addEventListener('touchend', function(e){
+    pbox.on('touchend', function(e){
 	    e.preventDefault();
-	    if (!ac.stopped) $("#pbox").bind('touchmove', draw); $("#pbox").unbind('touchmove', draw);
+	    if (!ac.stopped) jQuery("#pbox").bind('touchmove', draw); jQuery("#pbox").unbind('touchmove', draw);
 	        arrMU.push(e.timeStamp);
     });
 	
@@ -210,8 +278,8 @@ function spraycan() {
 	
 	ac.stop = function() {
 		ac.stopped = true;
-		$(tools).remove();
-		$('.spraycanBut, .spraycan').remove();
+		jQuery(tools).remove();
+		jQuery('#spraycanBut, .spraycan').remove();
 	};
 	
 }
@@ -223,7 +291,7 @@ function spraycan() {
 
 function moveCP(e) {
 	spraycan.movingCP = true;
-	var cp = $('#colourPicker');
+	var cp = jQuery('#colourPicker');
 	cp.css('left', e.pageX);
 	cp.css('top', e.pageY); 
 }
@@ -248,13 +316,21 @@ function rgbToHex(hex) {
 ------------------ */
 
 function draw(e){
+	e.preventDefault();
 	if (spraycan.movingCP) return;
-	var groupHolder = document.createElement('div');
+	var groupHolder = jQuery('<div>');
 	var divIdName = 'brushstroke'+currentstroke+'Div';
 	currentstroke = currentstroke + 1;
 	strokelength[strokelength.length - 1] = strokelength[strokelength.length - 1] + 1;
+	//var rect = jQuery("#pbox").get(0).getBoundingClientRect();
+	//xd = e.clientX - rect.left;
+	//yd = e.clientY - rect.top;
+	var posn = jQuery("#pbox").offset();
+    var xp = posn.left;
+    var yp = posn.top;
+
 	if (e.type == "touchmove") {
-		var xd=e.originalEvent.touches[0].pageX -xp;
+		var xd=e.originalEvent.touches[0].pageX +xp;
 		var yd=e.originalEvent.touches[0].pageY -yp; 		
 	} else if (e.type == "touchstart"){
 		var xd=e.touches[0].pageX -xp;
@@ -263,15 +339,16 @@ function draw(e){
 		var xd = e.pageX - xp;
 		var yd = e.pageY - yp;	
 	}
+	console.log('XD:' + xd + ' YD:' + yd + ' XP:' + xp + ' YP:' + yp + ' mousex:'+ e.pageX + ' mousey:' + e.pageY)
 	arrXD.push(xd);
     arrYD.push(yd);
     arrTimeD.push(e.timeStamp);
 	for(var j=0; j<1; j++) {
-		var div = document.createElement('div');
-		var brushDiam = Math.round((parseInt(spraycan.bar.css('left')) / spraycan.bar.parent().width()) * 100);
-		brushDiam=10;
+		var div = jQuery('<div>');
+		//var brushDiam = Math.round((parseInt(spraycan.bar.css('left')) / spraycan.bar.parent().width()) * 100);
+		var brushDiam=10;
 		
-		with($(div)) {
+		with(jQuery(div)) {
 			css({
 				position: 'absolute',
 				zIndex: 99999,
@@ -284,6 +361,7 @@ function draw(e){
 				height: brushDiam + ((j * 5) * 2),
 				left: (xd - (brushDiam / 2)) - (j * 5),
 				top: (yd - (brushDiam / 2)) - (j * 5),
+				//pointer-events: none,
 				//opacity: 1 - (j * .3),
 				opacity: .2,
 				//filter: 'alpha(opacity='+(100 - (j * 20))+')'
@@ -292,11 +370,12 @@ function draw(e){
 			addClass('spraycan');
 			
 		}
-		div.setAttribute('id', divIdName);
-		$(groupHolder).append(div);
+		jQuery(div).attr('id', divIdName);
+		jQuery(div).css('pointer-events','none');
+		jQuery(groupHolder).append(div);
 	}
-	$("#pbox").append(groupHolder);
-	
+	jQuery("#pbox").append(groupHolder);
+	return false;
 }
 
 //Global variables which store the length of each stroke, for undoing purposes

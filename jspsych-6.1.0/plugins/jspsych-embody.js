@@ -44,7 +44,7 @@ jsPsych.plugins["embody"] = (function(){
 
         var silimage = "'v1/images/dummyG_small.png'";
 
-        var pbox_html = '<div class="jspsych-pbox" id="pbox">'+
+        var pbox_html = '<div class="jspsych-pbox" id="pbox" style="position:relative; touch-action:none; user-select:none;">'+
             //'<div id="pbox1" style="float:left;background-image:url('+silimage+');"></div>'+
             '<div id="pbox1" style="float:left"><img src="'+repo_site+'v1/images/dummyG_small.png"></img></div>'+
             //'<div id="pbox1L">Label1</div>'+
