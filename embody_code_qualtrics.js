@@ -53,7 +53,7 @@ var surveytrl = {
 }
 
 main_proc = {
-    timeline:[embodytrl,surveytrl],
+    timeline:[embodytrl],
     repetitions:1,
 };
 

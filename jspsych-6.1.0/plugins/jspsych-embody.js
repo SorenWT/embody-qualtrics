@@ -176,7 +176,7 @@ jsPsych.plugins["embody"] = (function(){
             off1 = jQuery('#pbox1').offset();
             off2 = jQuery('#pbox2').offset();
 
-            trldata = {'arrXD': arrXD, 'arrYD': arrYD, 'arrTimeD': arrTimeD, 'arrMU': arrMU, 'arrMD': arrMD, 'rt': rt, stimulus: trial.stimulus,
+            trldata = {'arrXD': arrXD, 'arrYD': arrYD, 'arrMU': arrMU, 'arrMD': arrMD, 'rt': rt, stimulus: trial.stimulus,
                 'pbox1l':off1.left,'pbox2l':off2.left,'pbox1t':off2.top,'pbox2t':off2.top};
       
             // after a valid response, the stimulus will have the CSS class 'responded'
