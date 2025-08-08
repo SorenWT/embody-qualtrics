@@ -329,7 +329,7 @@ function draw(e){
 		var xd=e.touches[0].pageX -xp;
 		var yd=e.touches[0].pageY -yp;
 	} else {
-		var xd = e.pageX;// - xp;
+		var xd = e.clientX;// - xp;
 		var yd = e.pageY - yp;	
 	}
 	console.log('XD:' + xd + ' YD:' + yd + ' XP:' + xp + ' YP:' + yp + ' mousex:'+ e.pageX + ' mousey:' + e.pageY)
