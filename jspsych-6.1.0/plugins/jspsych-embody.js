@@ -118,7 +118,7 @@ jsPsych.plugins["embody"] = (function(){
             var y = e.pageY - yp;
             var colid=Math.floor((x/10)%10);
             //if(x<450){
-                spraycan.currColour = 'ff0000';
+                spraycan.currColour = 'ff9900';
             //}else{
                 //spraycan.currColour = '0000ff';
             //}           
@@ -147,7 +147,7 @@ jsPsych.plugins["embody"] = (function(){
             //if(x<450){
             //    spraycan.currColour = 'ff0000';
             //}else{
-                spraycan.currColour = '0000ff';
+                spraycan.currColour = '00ff00';
             //}           
             arrX.push(x);
             arrY.push(y);
