@@ -10,8 +10,8 @@ function spraycan(display_element) {
 
 	// swt debugging edit
 	//xp = 0; yp = 0;
-	posn = jQuery(display_element).offset();
-	xp = posn.left; yp = posn.top;
+	//posn = jQuery(display_element).offset();
+	//xp = posn.left; yp = posn.top;
 
 
 	/* ------------------
