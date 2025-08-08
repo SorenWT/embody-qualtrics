@@ -322,14 +322,14 @@ function draw(e){
 	var divIdName = 'brushstroke'+currentstroke+'Div';
 	currentstroke = currentstroke + 1;
 	strokelength[strokelength.length - 1] = strokelength[strokelength.length - 1] + 1;
-	//var rect = jQuery("#pbox").get(0).getBoundingClientRect();
-	//xd = e.clientX - rect.left;
-	//yd = e.clientY - rect.top;
-	var posn = jQuery("#pbox").offset();
-    var xp = posn.left;
-    var yp = posn.top;
+	var rect = jQuery("#pbox").get(0).getBoundingClientRect();
+	xd = e.clientX - rect.left;
+	yd = e.clientY - rect.top;
+	//var posn = jQuery("#pbox").offset();
+    //var xp = posn.left;
+    //var yp = posn.top;
 
-	if (e.type == "touchmove") {
+/*	if (e.type == "touchmove") {
 		var xd=e.originalEvent.touches[0].pageX +xp;
 		var yd=e.originalEvent.touches[0].pageY -yp; 		
 	} else if (e.type == "touchstart"){
@@ -340,6 +340,7 @@ function draw(e){
 		var yd = e.pageY - yp;	
 	}
 	console.log('XD:' + xd + ' YD:' + yd + ' XP:' + xp + ' YP:' + yp + ' mousex:'+ e.pageX + ' mousey:' + e.pageY)
+	*/
 	arrXD.push(xd);
     arrYD.push(yd);
     arrTimeD.push(e.timeStamp);
