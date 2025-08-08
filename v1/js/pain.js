@@ -11,7 +11,7 @@ function spraycan(display_element) {
 	// swt debugging edit
 	//xp = 0; yp = 0;
 	posn = jQuery(display_element).offset();
-	xp = posn.left; yp = posn.top;
+	xp = posn.left-jQuery(display_element).css('margin-left'); yp = posn.top;
 
 
 	/* ------------------
