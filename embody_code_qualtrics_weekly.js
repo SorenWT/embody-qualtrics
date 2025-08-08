@@ -110,8 +110,8 @@ var instructions = {
     choices:['Click here to begin'],
     stimulus:'<div style = "width:1100px"><p style="font-size:133%"> In this experiment we study whereabouts in their bodies people feel different emotions.</p>'+
     '<p style="font-size:133%"> You will be presented with the name of one emotion (such as happiness), and pictures of two blank human bodies. Think carefully what you feel in your body when you feel the corresponding emotion.</p>'+
-    '<p style="font-size:133%">Your task is to use your mouse to color the bodily regions whose activity you feel changing during the emotion. For the left body, color the regions whose activity you feel <span style="color:red;font-weight:bold">increasing or getting stronger</span> when you feel this emotion.'+
-    ' For the right body, color the regions whose activity you feel <span style="color:blue;font-weight:bold">decreasing or getting weaker</span> when feeling that emotion. You can color any region of the bodies you feel appropriate, from the head to the toes. </p>'+
+    '<p style="font-size:133%">Your task is to use your mouse to color the bodily regions whose activity you feel changing during the emotion. For the left body, color the regions whose activity you feel <span style="color:#ff9900;font-weight:bold">increasing or getting stronger</span> when you feel this emotion.'+
+    ' For the right body, color the regions whose activity you feel <span style="color:#00ff00;font-weight:bold">decreasing or getting weaker</span> when feeling that emotion. You can color any region of the bodies you feel appropriate, from the head to the toes. </p>'+
     '<p style="font-size:133%"> If you make a mistake, you can click the "clear" button at the bottom of the screen to clear your coloring. When you have finished coloring the bodies, click the "continue" button at the bottom of the screen to proceed to next emotion.</p></div>',
 }
 

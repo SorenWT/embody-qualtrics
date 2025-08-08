@@ -343,7 +343,7 @@ function draw(e){
 		
 		with(jQuery(div)) {
 			css({
-				position: 'relative',
+				position: 'absolute',
 				zIndex: 99999,
 				borderRadius: brushDiam,
 				MozBorderRadius: brushDiam,
