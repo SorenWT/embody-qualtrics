@@ -15,17 +15,17 @@ var arrMU = new Array(0);
 var repo_site = "https://sorenwt.github.io/embody-qualtrics/";
 
 //emos = ['HAPPINESS','SADNESS','ANGER','FEAR','DISGUST','SURPRISE'];
-emos = [''];
+emos = ['HAPPINESS','SADNESS','ANGER','FEAR','DISGUST','SURPRISE','PRIDE','SHAME','ENVY','CONTEMPT','THINKING','HUNGER','YOUR HEARTBEAT','BREATHING'];
 
 count = 0; 
 
-var seq = [1];
+var seq = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 //var seq = [1,2,3,4,5,6]; // replace this later depending on how/if we want to do balancing, shuffling
 seq = jsPsych.randomization.repeat(seq,1);
 
 var embodytrl = {
     type:'embody',
-    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate what you felt in your body during the previous week.</p></div>',
+    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate what you feel in your body when you feel...</p></div>',
     stimulus:function(){
         count +=1;
         return emos[seq[count-1]-1]
@@ -54,7 +54,7 @@ var surveytrl = {
 
 main_proc = {
     timeline:[embodytrl],
-    repetitions:1,
+    repetitions:14,
 };
 
 /*
@@ -108,9 +108,9 @@ var welcome_fullscreen = {
 var instructions = {
     type:'html-button-response',
     choices:['Click here to begin'],
-    stimulus:'<div style = "width:1100px"><p style="font-size:133%"> In this final part of the survey we are interested in whereabouts in their bodies people feel their emotions.</p>'+
-    '<p style="font-size:133%"> As you did in the first survey, you will be presented with pictures of two blank human bodies. This time, instead of painting where you feel a specific emotion, we will ask you to paint <strong>where you felt emotions in your body in general during this past week.</strong></p>'+
-    '<p style="font-size:133%"> As before, for the left body, color the regions whose activity you feel <span style="color:#ff9900;font-weight:bold">increasing or getting stronger</span> when you feel this emotion.'+
+    stimulus:'<div style = "width:1100px"><p style="font-size:133%"> In this final part of the survey we are interested in whereabouts in their bodies people feel different emotions.</p>'+
+    '<p style="font-size:133%"> You will be presented with the name of one emotion (such as happiness), and pictures of two blank human bodies. Think carefully what you feel in your body when you feel the corresponding emotion.</p>'+
+    '<p style="font-size:133%">Your task is to use your mouse to color the bodily regions whose activity you feel changing during the emotion. For the left body, color the regions whose activity you feel <span style="color:#ff9900;font-weight:bold">increasing or getting stronger</span> when you feel this emotion.'+
     ' For the right body, color the regions whose activity you feel <span style="color:#00ff00;font-weight:bold">decreasing or getting weaker</span> when feeling that emotion. You can color any region of the bodies you feel appropriate, from the head to the toes. <strong>There are no "right" answers.</strong></p>'+
     '<p style="font-size:133%"> If you make a mistake, you can click the "clear" button at the bottom of the screen to clear your coloring. When you have finished coloring the bodies, click the "continue" button at the bottom of the screen to proceed to next emotion.</p></div>',
 }
@@ -118,7 +118,7 @@ var instructions = {
 var instructions2 = {
     type: 'html-button-response',
     choices:['Begin experiment'],
-    stimulus:'<div style = "max-height:18vh; display: flex;"><div style ="width:66%; max-height: 100%; float:left; display:flex;"><p style="font-size:133%; margin: auto;"> As a reminder, there are 3 main pieces of information your drawings should reflect. The first is the <strong>location</strong> of the sensation in question. Colour the area where you feel the sensation in your body. </p></div>'+
+    stimulus:'<div style = "max-height:18vh; display: flex;"><div style ="width:66%; max-height: 100%; float:left; display:flex;"><p style="font-size:133%; margin: auto;"> There are 3 main pieces of information your drawings should reflect. The first is the <strong>location</strong> of the sensation in question. Colour the area where you feel the sensation in your body. </p></div>'+
     '<div style="width:34%; max-height: 100%; float:right;"><img src="'+repo_site+'/v1/images/examples/example_upper.png" style="max-width:49%; max-height:100%;"></img><img src="'+repo_site+'/v1/images/examples/example_lower.png" style="max-width:49%; max-height:100%;"></img></div></div><br>'+
     '<div style = "max-height:18vh; display: flex;"><div style ="width:66%; float:left; display:flex;"><p style="font-size:133%; margin: auto;"> The second piece of information is the <strong>intensity</strong> of the sensation. If the sensation is intense, you should spend more time colouring that area, so that the colour is stronger. If it is less intense, you can spend less time painting there, and the colour will be fainter.</p></div>'+
     '<div style="width:34%; float:right"><img src="'+repo_site+'v1/images/examples/example_intense.png" style="max-width:49%; max-height:100%;"></img><img src="'+repo_site+'/v1/images/examples/example_weak.png" style="max-width:49%; max-height:100%;"></img></div></div><br>'+
