@@ -322,12 +322,29 @@ function draw(e){
 	var divIdName = 'brushstroke'+currentstroke+'Div';
 	currentstroke = currentstroke + 1;
 	strokelength[strokelength.length - 1] = strokelength[strokelength.length - 1] + 1;
-	var rect = jQuery("#pbox").get(0).getBoundingClientRect();
-	xd = e.clientX - rect.left;
-	yd = e.clientY - rect.top;
 	//var posn = jQuery("#pbox").offset();
     //var xp = posn.left;
     //var yp = posn.top;
+
+	var rect = jQuery("#pbox").get(0).getBoundingClientRect();
+
+    var clientX, clientY;
+    if (e.originalEvent && e.originalEvent.touches && e.originalEvent.touches.length) {
+        // touchmove / touchstart via jQuery wrap
+        clientX = e.originalEvent.touches[0].clientX;
+        clientY = e.originalEvent.touches[0].clientY;
+    } else if (e.originalEvent && e.originalEvent.changedTouches && e.originalEvent.changedTouches.length) {
+        // some touch events use changedTouches
+        clientX = e.originalEvent.changedTouches[0].clientX;
+        clientY = e.originalEvent.changedTouches[0].clientY;
+    } else {
+        // mouse events
+        clientX = (typeof e.clientX !== 'undefined') ? e.clientX : (e.pageX - window.pageXOffset);
+        clientY = (typeof e.clientY !== 'undefined') ? e.clientY : (e.pageY - window.pageYOffset);
+    }
+
+	xd = clientX - rect.left;
+	yd = clientY - rect.top;
 
 /*	if (e.type == "touchmove") {
 		var xd=e.originalEvent.touches[0].pageX +xp;
