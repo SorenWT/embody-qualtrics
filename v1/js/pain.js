@@ -323,7 +323,7 @@ function draw(e){
 	currentstroke = currentstroke + 1;
 	strokelength[strokelength.length - 1] = strokelength[strokelength.length - 1] + 1;
 	if (e.type == "touchmove") {
-		var xd=e.originalEvent.touches[0].pageX -xp;
+		var xd=e.originalEvent.touches[0].pageX +xp;
 		var yd=e.originalEvent.touches[0].pageY -yp; 		
 	} else if (e.type == "touchstart"){
 		var xd=e.touches[0].pageX -xp;
@@ -332,7 +332,7 @@ function draw(e){
 		var xd = e.pageX - xp;
 		var yd = e.pageY - yp;	
 	}
-	console.log('XD:' + xd + ' YD:' + yd + ' XP:' + xp + ' YP:' + yp)
+	console.log('XD:' + xd + ' YD:' + yd + ' XP:' + xp + ' YP:' + yp + ' mousex:'+ e.pageX + ' mousey:' + e.pageY)
 	arrXD.push(xd);
     arrYD.push(yd);
     arrTimeD.push(e.timeStamp);
