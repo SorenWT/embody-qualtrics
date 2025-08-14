@@ -108,6 +108,7 @@ jsPsych.plugins["embody-singlebody"] = (function(){
         arrMU = new Array(0);
 
         spraycan(display_element);
+        spraycan.currColour = trial.colour;
 
         /*jQuery(window).resize(function(){
             //setTimeout(function(){
