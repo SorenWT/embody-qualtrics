@@ -56,18 +56,18 @@ jsPsych.plugins["embody-singlebody"] = (function(){
 
         var silimage = "'v1/images/dummyG_small.png'";
 
-        var pbox_html = '<div class="jspsych-pbox" id="pbox" style="position:relative; touch-action:none; user-select:none;">'+
+        var pbox_html = '<div id="pbox" style="position:relative; touch-action:none; user-select:none;">'+
             //'<div id="pbox1" style="float:left;background-image:url('+silimage+');"></div>'+
             '<div id="pbox1" style="float:left"><img src="'+repo_site+'v1/images/dummyG_small.png"></img></div>'+
             '</div><div id="pboxpaint"></div>';
 
         var i = 0; // just so I don't have to recode stuff
 
-        //var spacer_html = '<div id="spacer"><img src="'+repo_site+'v1/images/dummyG_small_spacer.png"></img></div>';
+        var spacer_html = '<div id="spacer"><img src="'+repo_site+'v1/images/dummyG_small_spacer.png"></img></div>';
         var label_html = '<div id="labels"><p style ="float:left;width:175px"><strong>Sensations '+trial.senstype+'</strong></p>';
          var btn_html = '<div id="jspsych-html-button-response-btngroup"><div class="jspsych-btn" style="display: inline-block; margin:'+trial.margin_vertical+' '+trial.margin_horizontal+'" id="jspsych-html-button-response-button-' + i +'" data-choice="'+i+'">Continue</div></div>';
         
-        display_element.innerHTML = task_html+pbox_html+label_html+btn_html;
+        display_element.innerHTML = task_html+pbox_html+spacer_html+label_html+btn_html;
 
         // make a nice border
         jQuery('#jspsych-content').css('border-style','solid');
