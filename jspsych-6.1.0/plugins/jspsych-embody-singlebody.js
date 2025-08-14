@@ -46,7 +46,7 @@ jsPsych.plugins["embody-singlebody"] = (function(){
     }
 
     plugin.trial = function(display_element, trial){
-        var task_html = '<div style="text-align:center;margin-top:10px;width:800px">'+
+        var task_html = '<div style="text-align:center;margin-top:10px">'+
             '<div id = "preamble">'+
             trial.preamble + ' </div>'+
             '<div><p style="font-size:200%"><strong>'+
@@ -64,7 +64,7 @@ jsPsych.plugins["embody-singlebody"] = (function(){
         var i = 0; // just so I don't have to recode stuff
 
         var spacer_html = '<div id="spacer"><img src="'+repo_site+'v1/images/dummyG_small_spacer.png"></img></div>';
-        var label_html = '<div id="labels"><p style ="float:left;width:175px"><strong>'+trial.senstype+'</strong></p>';
+        var label_html = '<div id="labels"><p style ="float:left;width:175px"><strong>Sensations '+trial.senstype+'</strong></p>';
          var btn_html = '<div id="jspsych-html-button-response-btngroup"><div class="jspsych-btn" style="display: inline-block; margin:'+trial.margin_vertical+' '+trial.margin_horizontal+'" id="jspsych-html-button-response-button-' + i +'" data-choice="'+i+'">Continue</div></div>';
         
         display_element.innerHTML = task_html+pbox_html+spacer_html+label_html+btn_html;
@@ -109,7 +109,7 @@ jsPsych.plugins["embody-singlebody"] = (function(){
 
         spraycan(display_element);
 
-        jQuery(window).resize(function(){
+        /*jQuery(window).resize(function(){
             //setTimeout(function(){
             //if((window.outerWidth!=screen.width || window.outerHeight!=screen.height) && (window.innerWidth!=screen.width || window.innerHeight!=screen.height)){
                 //console.log([window.innerWidth,window.innerHeight, window.outerWidth,window.outerHeight])
@@ -118,7 +118,7 @@ jsPsych.plugins["embody-singlebody"] = (function(){
             //}
             //},500);
             //window.resizeTo(scrsize[0],scrsize[1]);
-        });
+        });*/
 
         jQuery("#pbox1").mousemove(function(e){
             var x= e.pageX - xp;

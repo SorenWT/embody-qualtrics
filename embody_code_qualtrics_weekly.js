@@ -125,11 +125,11 @@ var welcome_fullscreen = {
 var instructions = {
     type:'html-button-response',
     choices:['Click here to begin'],
-    stimulus:'<div style = "width:1100px"><p style="font-size:133%"> In this final part of the survey we are interested in whereabouts in their bodies people feel their emotions.</p><br>'+
+    stimulus:'<p style="font-size:133%"> In this final part of the survey we are interested in whereabouts in their bodies people feel their emotions.</p><br>'+
     '<p style="font-size:133%"> As you did in the first survey, you will be presented with pictures of two blank human bodies. This time, instead of painting where you feel a specific emotion, we will ask you to paint <strong>where you felt emotions in your body in general during this past week.</strong></p><br>'+
     '<p style="font-size:133%"> As before, for the left body, color the regions whose activity you feel <span style="color:#ff9900;font-weight:bold">increasing or getting stronger</span> when you feel this emotion.'+
     ' For the right body, color the regions whose activity you feel <span style="color:#00ff00;font-weight:bold">decreasing or getting weaker</span> when feeling that emotion. You can color any region of the bodies you feel appropriate, from the head to the toes. <strong>There are no "right" answers.</strong></p><br>'+
-    '<p style="font-size:133%"> If you make a mistake, you can click the "clear" button at the bottom of the screen to clear your coloring. When you have finished coloring the bodies, click the "continue" button at the bottom of the screen to proceed to next emotion.</p><br></div>',
+    '<p style="font-size:133%"> If you make a mistake, you can click the "clear" button at the bottom of the screen to clear your coloring. When you have finished coloring the bodies, click the "continue" button at the bottom of the screen to proceed to next emotion.</p><br>',
 }
 
 var instructions2 = {
@@ -148,7 +148,7 @@ var instructions2 = {
 
 
 var proc_intro = {
-    timeline:[instructions,instructions2],
+    timeline:[instructions],
 }
 
 var endscreen_feedback = {
