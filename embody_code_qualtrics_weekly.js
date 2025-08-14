@@ -23,13 +23,30 @@ var seq = [1];
 //var seq = [1,2,3,4,5,6]; // replace this later depending on how/if we want to do balancing, shuffling
 seq = jsPsych.randomization.repeat(seq,1);
 
-var embodytrl = {
-    type:'embody',
-    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate what you felt in your body during the previous week.</p></div>',
+var embodytrl_1 = {
+    type:'embody-singlebody',
+    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate what sensations you felt <strong>increasing or getting stronger</strong> in your body during the previous week.</p></div>',
     stimulus:function(){
         count +=1;
         return emos[seq[count-1]-1]
     },
+    colour:'ff9900',
+    senstype:'increasing or getting stronger',
+    on_finish: function(data){
+        data.test_part = 'embody_main';
+        return data
+    }
+}
+
+var embodytrl_2 = {
+    type:'embody-singlebody',
+    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate what sensations you felt <strong>decreasing or getting weaker</strong> in your body during the previous week.</p></div>',
+    stimulus:function(){
+        count +=1;
+        return emos[seq[count-1]-1]
+    },
+    colour:'0000ff',
+    senstype:'decreasing or getting weaker',
     on_finish: function(data){
         data.test_part = 'embody_main';
         return data
@@ -53,7 +70,7 @@ var surveytrl = {
 }
 
 main_proc = {
-    timeline:[embodytrl],
+    timeline:[embodytrl_1,embodytrl_2],
     repetitions:1,
 };
 
