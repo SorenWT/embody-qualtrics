@@ -15,7 +15,7 @@ var arrMU = new Array(0);
 var repo_site = "https://sorenwt.github.io/embody-qualtrics/";
 
 //emos = ['HAPPINESS','SADNESS','ANGER','FEAR','DISGUST','SURPRISE'];
-emos = [''];
+emos = ['',''];
 
 count = 0; 
 
@@ -45,7 +45,7 @@ var embodytrl_2 = {
         count +=1;
         return emos[seq[count-1]-1]
     },
-    colour:'0000ff',
+    colour:'00ff00',
     senstype:'decreasing or getting weaker',
     on_finish: function(data){
         data.test_part = 'embody_main';
