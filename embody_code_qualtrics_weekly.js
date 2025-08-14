@@ -25,7 +25,7 @@ seq = jsPsych.randomization.repeat(seq,1);
 
 var embodytrl_1 = {
     type:'embody-singlebody',
-    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate what sensations you felt <strong>increasing or getting stronger</strong> in your body during the previous week.</p></div>',
+    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate where in your body you felt sensations <strong>increasing or getting stronger</strong> when you felt emotions during the previous week.</p></div>',
     stimulus:function(){
         count +=1;
         return emos[seq[count-1]-1]
@@ -40,7 +40,7 @@ var embodytrl_1 = {
 
 var embodytrl_2 = {
     type:'embody-singlebody',
-    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate what sensations you felt <strong>decreasing or getting weaker</strong> in your body during the previous week.</p></div>',
+    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the pictures below, indicate where in your body you felt sensations <strong>decreasing or getting weaker</strong> when you felt emotions during the previous week.</p></div>',
     stimulus:function(){
         count +=1;
         return emos[seq[count-1]-1]
@@ -127,8 +127,8 @@ var instructions = {
     choices:['Click here to begin'],
     stimulus:'<p style="font-size:133%"> In this final part of the survey we are interested in whereabouts in their bodies people feel their emotions.</p><br>'+
     '<p style="font-size:133%"> As you did in the first survey, you will be presented with pictures of two blank human bodies. This time, instead of painting where you feel a specific emotion, we will ask you to paint <strong>where you felt emotions in your body in general during this past week.</strong></p><br>'+
-    '<p style="font-size:133%"> As before, for the left body, color the regions whose activity you feel <span style="color:#ff9900;font-weight:bold">increasing or getting stronger</span> when you feel this emotion.'+
-    ' For the right body, color the regions whose activity you feel <span style="color:#00ff00;font-weight:bold">decreasing or getting weaker</span> when feeling that emotion. You can color any region of the bodies you feel appropriate, from the head to the toes. <strong>There are no "right" answers.</strong></p><br>'+
+    '<p style="font-size:133%"> <strong>This time, the two bodies you paint will be presented on two separate pages (to make the task friendly for mobile devices).</strong> <br><br> For the first body, color the regions whose activity you felt <span style="color:#ff9900;font-weight:bold">increasing or getting stronger</span> when you felt emotions during the past week.'+
+    ' For the second body, color the regions whose activity you felt <span style="color:#00ff00;font-weight:bold">decreasing or getting weaker</span> when you felt emotions during the past week. You can color any region of the bodies you feel appropriate, from the head to the toes. <strong>There are no "right" answers.</strong></p><br>'+
     '<p style="font-size:133%"> If you make a mistake, you can click the "clear" button at the bottom of the screen to clear your coloring. When you have finished coloring the bodies, click the "continue" button at the bottom of the screen to proceed to next emotion.</p><br>',
 }
 
