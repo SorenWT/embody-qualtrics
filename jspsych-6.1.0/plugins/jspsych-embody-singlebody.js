@@ -63,11 +63,11 @@ jsPsych.plugins["embody-singlebody"] = (function(){
 
         var i = 0; // just so I don't have to recode stuff
 
-        var spacer_html = '<div id="spacer"><img src="'+repo_site+'v1/images/dummyG_small_spacer.png"></img></div>';
+        //var spacer_html = '<div id="spacer"><img src="'+repo_site+'v1/images/dummyG_small_spacer.png"></img></div>';
         var label_html = '<div id="labels"><p style ="float:left;width:175px"><strong>Sensations '+trial.senstype+'</strong></p>';
          var btn_html = '<div id="jspsych-html-button-response-btngroup"><div class="jspsych-btn" style="display: inline-block; margin:'+trial.margin_vertical+' '+trial.margin_horizontal+'" id="jspsych-html-button-response-button-' + i +'" data-choice="'+i+'">Continue</div></div>';
         
-        display_element.innerHTML = task_html+pbox_html+spacer_html+label_html+btn_html;
+        display_element.innerHTML = task_html+pbox_html+label_html+btn_html;
 
         // make a nice border
         jQuery('#jspsych-content').css('border-style','solid');
@@ -186,7 +186,7 @@ jsPsych.plugins["embody-singlebody"] = (function(){
 
 
             trldata = {'arrXD': arrXD.map(num => Math.round(num)), 'arrYD': arrYD.map(num => Math.round(num)), 'arrMU': arrMU, 'arrMD': arrMD, 'rt': rt, stimulus: trial.stimulus,
-                'pbox1l':off1.left,'pbox1t':off2.top};
+                'pbox1l':off1.left,'pbox1t':off1.top};
       
             // after a valid response, the stimulus will have the CSS class 'responded'
             // which can be used to provide visual feedback that a response was recorded
