@@ -47,7 +47,7 @@ jsPsych.plugins["embody-singlebody"] = (function(){
 
     plugin.trial = function(display_element, trial){
         var task_html = '<div style="text-align:center;margin-top:10px">'+
-            '<div id = "preamble1">'+
+            '<div id = "preamble">'+
             trial.preamble + ' </div>'+
             '<div><p style="font-size:200%"><strong>'+
             trial.stimulus + '</strong></p></div></div>';

@@ -25,7 +25,7 @@ seq = jsPsych.randomization.repeat(seq,1);
 
 var embodytrl_1 = {
     type:'embody-singlebody',
-    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the picture below, indicate where in your body you felt sensations INCREASING OR GETTING STRONGER when you felt emotions during the previous week.</p></div>',
+    preamble:'<div style="margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the picture below, indicate where in your body you felt sensations INCREASING OR GETTING STRONGER when you felt emotions during the previous week.</p></div>',
     stimulus:function(){
         count +=1;
         return emos[seq[count-1]-1]
@@ -40,7 +40,7 @@ var embodytrl_1 = {
 
 var embodytrl_2 = {
     type:'embody-singlebody',
-    preamble:'<div style="width:500px;margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the picture below, indicate where in your body you felt sensations DECREASING OR GETTING WEAKER when you felt emotions during the previous week.</p></div>',
+    preamble:'<div style="margin:0 auto"><p style="font-size:120%;font-weight:bold">Using the picture below, indicate where in your body you felt sensations DECREASING OR GETTING WEAKER when you felt emotions during the previous week.</p></div>',
     stimulus:function(){
         count +=1;
         return emos[seq[count-1]-1]
